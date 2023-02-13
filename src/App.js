@@ -1,6 +1,6 @@
 import './App.css';
 import { useSelector, useDispatch } from 'react-redux'
-import { addUser } from './features/Users'
+import { addUser, deleteUser } from './features/Users'
 import { useState } from 'react'
 
 function App() {
@@ -41,6 +41,13 @@ function App() {
             <div>
               <h1> {user.name}</h1>
               <h1> {user.username}</h1>
+              <button
+                onClick={() => {
+                  dispatch(deleteUser({id: user.id}))
+                }}
+              >
+                Delete User
+              </button>
             </div>
           );
         })}
